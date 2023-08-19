@@ -23,16 +23,11 @@ func startRepl() {
 			continue
 		}
 
-		commandFromUser := cleaned[0]
-
-		command, exists := availableCommands[commandFromUser]
-
-		if !exists {
+		if command, exists := availableCommands[cleaned[0]]; exists {
+			command.callback()
+		} else {
 			fmt.Println("Invalid command")
-			continue
 		}
-
-		command.callback()
 	}
 }
 
