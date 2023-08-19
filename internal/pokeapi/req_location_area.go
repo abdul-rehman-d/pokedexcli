@@ -10,7 +10,7 @@ import (
 func (c *Client) ListLocationAreas(pageUrl *string) (LocationAreasResponse, error) {
 	var endpoint string
 	if pageUrl == nil {
-		endpoint = baseUrl + "/location"
+		endpoint = baseUrl + "/location-area"
 	} else {
 		endpoint = *pageUrl
 	}
