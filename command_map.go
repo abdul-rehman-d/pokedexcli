@@ -14,7 +14,7 @@ func callbackMap() error {
 		return err
 	}
 
-	fmt.Println("Locations:")
+	fmt.Println("Location areas:")
 
 	for _, location := range data.Results {
 		fmt.Printf(" - %v\n", location.Name)
