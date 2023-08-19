@@ -11,6 +11,7 @@ func startRepl(cfg *config) {
 	scanner := bufio.NewScanner(os.Stdin)
 
 	availableCommands := getCommands()
+	callbackHelp(cfg)
 
 	for {
 		fmt.Printf("> ")
