@@ -2,12 +2,12 @@ package main
 
 import "fmt"
 
-func callbackHelp(_ *config) error {
+func callbackHelp(_ *config, _ ...string) error {
 	fmt.Println("Welcome to Pokedex CLI")
 	fmt.Println("Available Commands:")
 
-	for _, cmd := range getCommands() {
-		fmt.Printf("\t%v\t\t%v\n", cmd.name, cmd.description)
+	for name, cmd := range getCommands() {
+		fmt.Printf("\t%v\t\t%v\n", name, cmd.description)
 	}
 
 	return nil

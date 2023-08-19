@@ -24,7 +24,7 @@ func startRepl(cfg *config) {
 		}
 
 		if command, exists := availableCommands[cleaned[0]]; exists {
-			err := command.callback(cfg)
+			err := command.callback(cfg, cleaned[1:]...)
 			if err != nil {
 				fmt.Println(err)
 			}
@@ -35,30 +35,25 @@ func startRepl(cfg *config) {
 }
 
 type cliCommand struct {
-	name        string
 	description string
-	callback    func(*config) error
+	callback    func(*config, ...string) error
 }
 
 func getCommands() map[string]cliCommand {
 	return map[string]cliCommand{
 		"help": {
-			name:        "help",
 			description: "Displays this help menu",
 			callback:    callbackHelp,
 		},
 		"map": {
-			name:        "map",
 			description: "List of locations",
 			callback:    callbackMap,
 		},
 		"mapb": {
-			name:        "mapb",
 			description: "List of prev locations",
 			callback:    callbackMapBack,
 		},
 		"exit": {
-			name:        "exit",
 			description: "Exits program",
 			callback:    callbackExit,
 		},
