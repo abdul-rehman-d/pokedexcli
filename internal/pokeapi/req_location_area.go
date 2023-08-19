@@ -73,7 +73,7 @@ func (c *Client) ListLocationAreas(pageUrl *string) (LocationAreasResponse, erro
 
 func (c *Client) GetLocationArea(locationAreaName string) (LocationArea, error) {
 	var endpoint string
-	endpoint = baseUrl + "/location-area"
+	endpoint = baseUrl + "/location-area/" + locationAreaName
 
 	data, err := c.request(endpoint)
 
