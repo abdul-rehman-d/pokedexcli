@@ -47,24 +47,13 @@ func getCommands() map[string]cliCommand {
 		"help": {
 			name:        "help",
 			description: "Displays this help menu",
-			callback:    printHelpMenu,
+			callback:    callbackHelp,
 		},
 		"exit": {
 			name:        "exit",
 			description: "Exits program",
-			callback: func() {
-				os.Exit(0)
-			},
+			callback:    callbackExit,
 		},
-	}
-}
-
-func printHelpMenu() {
-	fmt.Println("Welcome to Pokedex CLI")
-	fmt.Println("Available Commands:")
-
-	for _, cmd := range getCommands() {
-		fmt.Printf("\t%v\t\t%v\n", cmd.name, cmd.description)
 	}
 }
 
