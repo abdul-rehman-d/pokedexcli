@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func callbackHelp() error {
+func callbackHelp(_ *config) error {
 	fmt.Println("Welcome to Pokedex CLI")
 	fmt.Println("Available Commands:")
 
