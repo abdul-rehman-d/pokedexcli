@@ -31,6 +31,8 @@ func startRepl(cfg *config) {
 		} else {
 			fmt.Println("Invalid command")
 		}
+
+		fmt.Println()
 	}
 }
 
@@ -56,6 +58,10 @@ func getCommands() map[string]cliCommand {
 		"explore": {
 			description: "Explore location",
 			callback:    callbackExplore,
+		},
+		"catch": {
+			description: "Catch pokemon",
+			callback:    callbackCatch,
 		},
 		"clear": {
 			description: "Clear screen",
