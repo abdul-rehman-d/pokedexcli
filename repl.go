@@ -24,7 +24,10 @@ func startRepl(cfg *config) {
 		}
 
 		if command, exists := availableCommands[cleaned[0]]; exists {
-			command.callback(cfg)
+			err := command.callback(cfg)
+			if err != nil {
+				fmt.Println(err)
+			}
 		} else {
 			fmt.Println("Invalid command")
 		}
