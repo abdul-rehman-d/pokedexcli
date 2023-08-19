@@ -53,6 +53,10 @@ func getCommands() map[string]cliCommand {
 			description: "List of prev locations",
 			callback:    callbackMapBack,
 		},
+		"clear": {
+			description: "Clear screen",
+			callback:    callbackClear,
+		},
 		"exit": {
 			description: "Exits program",
 			callback:    callbackExit,
