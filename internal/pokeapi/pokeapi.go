@@ -32,9 +32,7 @@ func (c *Client) request(endpoint string) ([]byte, error) {
 
 	if exists {
 		data = cachedRes
-		fmt.Println("cache hit")
 	} else {
-		fmt.Println("cache miss")
 		req, err := http.NewRequest("GET", endpoint, nil)
 
 		if err != nil {
