@@ -16,6 +16,11 @@ func callbackCatch(cfg *config, args ...string) error {
 
 	pokemonName := args[0]
 
+	if _, exists := cfg.pokedex[pokemonName]; exists {
+		fmt.Printf("%v has already been caught!\n", pokemonName)
+		return nil
+	}
+
 	data, err := cfg.pokeapiClient.GetPokemon(pokemonName)
 
 	if err != nil {
@@ -33,6 +38,7 @@ func callbackCatch(cfg *config, args ...string) error {
 	}
 
 	fmt.Printf("Caught %v!\n", pokemonName)
+	cfg.pokedex[pokemonName] = data
 
 	return nil
 }
